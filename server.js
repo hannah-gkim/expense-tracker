@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
 const colors = require("colors");
@@ -16,6 +17,13 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use("/api/transactions", transactions);
+// thhis has to go below api routes
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolved(__dirname, "client", "build", "index.html"))
+  );
+}
 
 // app.get("/", (req, res) => {
 //   res.send("Hello");
