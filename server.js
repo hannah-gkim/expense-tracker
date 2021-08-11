@@ -10,6 +10,10 @@ connectDB();
 const transactions = require("./routes/transactions");
 const app = express();
 app.use(express.json());
+if (process.env.NODE_ENV === "development") {
+  //morgan shows method like  GET /api/transactions 304 30.685 ms - -
+  app.use(morgan("dev"));
+}
 
 app.use("/api/transactions", transactions);
 
