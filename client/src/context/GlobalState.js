@@ -21,6 +21,7 @@ export const GlobalContext = createContext(initialState);
 // App.js is the children
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+
   // Actions
   async function getTransactions() {
     try {

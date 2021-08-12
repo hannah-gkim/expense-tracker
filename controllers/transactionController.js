@@ -1,6 +1,5 @@
 const Transaction = require("../models/Transaction");
 
-// Get all transactions
 // GET /api/transactions
 // Access Public
 exports.getTransactions = async (req, res, next) => {
@@ -19,12 +18,11 @@ exports.getTransactions = async (req, res, next) => {
   }
 };
 
-// Add transactions
 // POST /api/transactions
 // Access Public
 exports.addTransactions = async (req, res, next) => {
   try {
-    const { text, amount } = req.body;
+    // const { text, amount } = req.body;
     const transaction = await Transaction.create(req.body);
     return res.status(201).json({
       success: true,
@@ -47,7 +45,6 @@ exports.addTransactions = async (req, res, next) => {
   }
 };
 
-// DELETE transactions
 // DELETE /api/transactions/:id
 // Access Public
 exports.deleteTransactions = async (req, res, next) => {
