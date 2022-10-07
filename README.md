@@ -11,4 +11,6 @@ _Track your daily expenses_
 
 # Demo
 
+##
+
 [![Expense Tracker](/client/public/demo.png)](https://expense-tracker-gkim.herokuapp.com/)
